@@ -1,0 +1,61 @@
+<p>lessons works!</p>
+<!-- <div>
+  <form [formGroup]="lessonSendForm">
+    <div formArrayName="lessons">
+      <div *ngFor="let lesson of lessonArray.controls; let i = index">
+        <div [formGroup]="i">
+          <input type="number" formControlName="id" />
+          <input type="date" formControlName="date" />
+          <input type="text" formControlName="theme" />
+          <input type="text" formControlName="homework" />
+          <input type="text" formControlName="note" />
+        </div>
+      </div>
+    </div>
+    <button type="button">Сохранить</button>
+  </form>
+</div> -->
+
+<hr />
+<div>
+  <div><h1>Список уроков</h1></div>
+  <div>
+    <form [formGroup]="lessonSendForm">
+        <div><input type="number" formControlName="id" /></div>
+        <div><input type="date" formControlName="date" /></div>
+        <div><input type="text" formControlName="theme"/></div>
+        <div><input type="text" formControlName="homework"/></div>
+        <div><input type="text" formControlName="note"/></div>
+        <div>
+          <button (click)="lessonForm()">Сохранить</button>
+          <button (click)="resetForm()">Сброс</button>
+        </div>
+      </form>
+  </div>
+
+  <table class="highlight">
+    <thead>
+      <tr>
+        <th rowspan="2">Номер</th>
+        <th>Дата урока</th>
+        <th>Тема урока</th>
+        <th>Домашнее задание</th>
+        <th>Примечание</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let lesson of lessons; let i = index">
+        <td style="width: 1em">{{ i + 1 }}</td>
+        <td>{{ lesson.date | date: "yyyy-MM-dd" }}</td>
+        <td>{{ lesson.theme }}</td>
+        <td>{{ lesson.homework }}</td>
+        <td>{{ lesson.note }}</td>
+
+        <td>
+          <input type="button" value="Изменить" (click)="editLesson(lesson)" />
+          <input type="button" value="Удалить" (click)="deleteLesson(i)" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
