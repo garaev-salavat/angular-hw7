@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Lesson } from '../lesson';
 import { LESSONS } from '../mock-lessons';
 
@@ -16,9 +16,9 @@ export class LessonsComponent {
 
   constructor(fb: FormBuilder) {
     this.lessonSendForm = fb.group({
-      id: fb.control(0),
-      date: fb.control(Date),
-      theme: fb.control(''),
+      id: fb.control(0, Validators.required),
+      date: fb.control(Date, Validators.required),
+      theme: fb.control('', Validators.required),
       homework: fb.control(''),
       note: fb.control(''),
     });

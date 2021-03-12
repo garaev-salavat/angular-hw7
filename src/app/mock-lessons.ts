@@ -1,5 +1,5 @@
 import { Lesson } from './lesson';
-// import { Student } from './student';
+import { Student } from './student';
 // import { StudentGrade } from './student-grade';
 
 export const LESSONS: Lesson[] = [
@@ -33,33 +33,33 @@ export const LESSONS: Lesson[] = [
   },
 ];
 
-// export const STUDENT: Student[] = [
-//   {
-//     id: 1,
-//     firstName: 'Иван',
-//     lastName: 'Иванов',
-//   },
-//   {
-//     id: 2,
-//     firstName: 'Георгий',
-//     lastName: 'Паравозов',
-//   },
-//   {
-//     id: 3,
-//     firstName: 'Ксения',
-//     lastName: 'Павлова',
-//   },
-//   {
-//     id: 4,
-//     firstName: 'Роман',
-//     lastName: 'Горбунов',
-//   },
-//   {
-//     id: 5,
-//     firstName: 'Андрей',
-//     lastName: 'Орлов',
-//   },
-// ];
+export const STUDENT: Student[] = [
+  {
+    id: 1,
+    firstName: 'Иван',
+    lastName: 'Иванов',
+  },
+  {
+    id: 2,
+    firstName: 'Георгий',
+    lastName: 'Паравозов',
+  },
+  {
+    id: 3,
+    firstName: 'Ксения',
+    lastName: 'Павлова',
+  },
+  {
+    id: 4,
+    firstName: 'Роман',
+    lastName: 'Горбунов',
+  },
+  {
+    id: 5,
+    firstName: 'Андрей',
+    lastName: 'Орлов',
+  },
+];
 
 // export const STUDENT_GRADE: StudentGrade[] = [
 //   {

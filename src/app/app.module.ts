@@ -5,11 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LessonsComponent } from './lessons/lessons.component';
+import { StudentsComponent } from './students/students.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LessonsComponent
+    LessonsComponent,
+    StudentsComponent
   ],
   imports: [
     BrowserModule,
@@ -18,6 +20,6 @@ import { LessonsComponent } from './lessons/lessons.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [LessonsComponent]
+  exports: [LessonsComponent, StudentsComponent]
 })
 export class AppModule { }

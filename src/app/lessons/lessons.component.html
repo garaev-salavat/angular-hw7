@@ -21,10 +21,27 @@
   <div><h1>Список уроков</h1></div>
   <div>
     <form [formGroup]="lessonSendForm">
-        <div><input type="number" formControlName="id" /></div>
-        <div><input type="date" formControlName="date" /></div>
-        <div><input type="text" formControlName="theme"/></div>
+      <label>Номер</label>
+        <div><input type="number" formControlName="id" />
+        <span *ngIf="lessonSendForm.get('id').invalid"
+        >Обязательное поле</span
+      ></div>
+      <label>Дата</label>
+        <div><input type="date" formControlName="date" />
+          <span *ngIf="lessonSendForm.get('date').invalid"
+          >Обязательное поле</span
+        ></div>
+
+        <label>Тема</label>
+        <div><input type="text" formControlName="theme"/>
+          <span *ngIf="lessonSendForm.get('theme').invalid"
+          >Обязательное поле</span
+        ></div>
+
+        <label>Самостоятельная</label>
         <div><input type="text" formControlName="homework"/></div>
+
+        <label>Заметки</label>
         <div><input type="text" formControlName="note"/></div>
         <div>
           <button (click)="lessonForm()">Сохранить</button>
