@@ -31,11 +31,11 @@ export const STUDENT: Student[] = [
     "grades": [
       {
         lessonId: 1,
-        grade: 3,
+        grade: 1,
       },
       {
         lessonId: 2,
-        grade: 5,
+        grade: 3,
       },
       {
         lessonId: 3,
