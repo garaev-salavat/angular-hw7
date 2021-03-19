@@ -1,59 +1,71 @@
-<p>lessons works!</p>
-<!-- <div>
-  <form [formGroup]="lessonSendForm">
-    <div formArrayName="lessons">
-      <div *ngFor="let lesson of lessonArray.controls; let i = index">
-        <div [formGroup]="i">
-          <input type="number" formControlName="id" />
-          <input type="date" formControlName="date" />
-          <input type="text" formControlName="theme" />
-          <input type="text" formControlName="homework" />
-          <input type="text" formControlName="note" />
-        </div>
-      </div>
-    </div>
-    <button type="button">Сохранить</button>
-  </form>
-</div> -->
-
 <hr />
 <div>
   <div><h1>Список уроков</h1></div>
   <div>
     <form [formGroup]="lessonSendForm">
       <label>Номер</label>
-        <div><input type="number" formControlName="id" />
-        <span *ngIf="lessonSendForm.get('id').invalid"
-        >Обязательное поле</span
-      ></div>
+      <input type="number" formControlName="id" />
+      <img
+        *ngIf="
+          lessonSendForm.get('id').getError('min') ||
+          lessonSendForm.get('id').invalid
+        "
+        src="../../assets/no.jpg"
+      />
+      <img
+        *ngIf="
+          !lessonSendForm.get('id').getError('min') &&
+          !lessonSendForm.get('id').invalid
+        "
+        src="../../assets/yes.jpg"
+      />
       <label>Дата</label>
-        <div><input type="date" formControlName="date" />
-          <span *ngIf="lessonSendForm.get('date').invalid"
-          >Обязательное поле</span
-        ></div>
-
-        <label>Тема</label>
-        <div><input type="text" formControlName="theme"/>
-          <span *ngIf="lessonSendForm.get('theme').invalid"
-          >Обязательное поле</span
-        ></div>
-
-        <label>Самостоятельная</label>
-        <div><input type="text" formControlName="homework"/></div>
-
-        <label>Заметки</label>
-        <div><input type="text" formControlName="note"/></div>
-        <div>
-          <button (click)="lessonForm()">Сохранить</button>
-          <button (click)="resetForm()">Сброс</button>
-        </div>
-      </form>
+      <input type="date" formControlName="date" />
+      <img
+        *ngIf="
+          lessonSendForm.get('date').getError('required') ||
+          lessonSendForm.get('date').getError('minDate')
+        "
+        src="../../assets/no.jpg"
+      />
+      <img
+        *ngIf="
+          !lessonSendForm.get('date').getError('required') &&
+          !lessonSendForm.get('date').getError('minDate')
+        "
+        src="../../assets/yes.jpg"
+      />
+      <label>Тема</label>
+      <input type="text" formControlName="theme" />
+      <img
+        *ngIf="lessonSendForm.get('theme').invalid"
+        src="../../assets/no.jpg"
+      />
+      <img
+        *ngIf="!lessonSendForm.get('theme').invalid"
+        src="../../assets/yes.jpg"
+      />
+      <label>Самостоятельная</label>
+      <input type="text" formControlName="homework" />
+      <img
+        *ngIf="lessonSendForm.get('homework').invalid"
+        src="../../assets/no.jpg"
+      />
+      <img
+        *ngIf="!lessonSendForm.get('homework').invalid"
+        src="../../assets/yes.jpg"
+      />
+      <label>Заметки</label>
+      <input type="text" formControlName="note" />
+      <button (click)="lessonForm()">Сохранить</button>
+      <button (click)="resetForm()">Сброс</button>
+    </form>
   </div>
 
   <table class="highlight">
     <thead>
       <tr>
-        <th rowspan="2">Номер</th>
+        <th>Номер</th>
         <th>Дата урока</th>
         <th>Тема урока</th>
         <th>Домашнее задание</th>
@@ -67,7 +79,6 @@
         <td>{{ lesson.theme }}</td>
         <td>{{ lesson.homework }}</td>
         <td>{{ lesson.note }}</td>
-
         <td>
           <input type="button" value="Изменить" (click)="editLesson(lesson)" />
           <input type="button" value="Удалить" (click)="deleteLesson(i)" />

@@ -1,5 +1,4 @@
 export class Student {
-    id: number;
-    firstName: string;
-    lastName: string;
+    fio: string;
+    grades: Array<any>;
 }

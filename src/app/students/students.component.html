@@ -1,37 +1,39 @@
-<p>students works!</p>
-<hr />
+<hr>
 <div>
   <div><h1>Студенты</h1></div>
-  <div>
-    <form [formGroup]="studentSendForm">
-      <div><input type="number" formControlName="id" /></div>
-      <div><input type="text" formControlName="firstName" /></div>
-      <div><input type="text" formControlName="lastName" /></div>
-      <div>
-        <button (click)="studentForm()">Сохранить</button>
-        <button (click)="resetForm()">Сброс</button>
-      </div>
-    </form>
-  </div>
-
-  <table class="highlight">
+  <form [formGroup]="studentForm">
+  <table>
     <thead>
       <tr>
-        <th rowspan="2">Номер</th>
-        <th>Фамилия</th>
-        <th>Имя</th>
+        <th>п/п</th>
+        <th>ФИО студента</th>
+        <th>Действие</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let student of students; let i = index">
-        <td>{{ student.id }}</td>
-        <td>{{ student.firstName }}</td>
-        <td>{{ student.lastName }}</td>
-        <td>
-          <input type="button" value="Изменить" (click)="editStudent(student)" />
-          <input type="button" value="Удалить" (click)="deleteStudent(i)" />
+       <tr *ngFor="let student of students.controls; let i = index">
+        <td>{{i+1}}</td>
+        <td formArrayName="students">
+      
+          <input type="text" [formControlName]="i" (change)="changeEmit(i)" />
+          <img
+            *ngIf="students.controls[i].invalid"
+            
+            src="../../assets/no.jpg"
+          />
+          <img
+            *ngIf="!students.controls[i].invalid"
+            src="../../assets/yes.jpg"
+          />
         </td>
-      </tr>
+        <td>
+          <button type="button" (click)="create(i)">Добавить</button>
+          <button type="button" (click)="delete(i)">
+            Удалить
+          </button> 
+          
+        </td>
     </tbody>
   </table>
+</form>
 </div>

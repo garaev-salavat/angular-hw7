@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+table,
+tr,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+span.invalid {
+  font-size: x-large;
+  font-weight: bold;
+  color: red;
+}

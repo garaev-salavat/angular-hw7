@@ -1,6 +1,5 @@
 import { Lesson } from './lesson';
 import { Student } from './student';
-// import { StudentGrade } from './student-grade';
 
 export const LESSONS: Lesson[] = [
   {
@@ -24,143 +23,59 @@ export const LESSONS: Lesson[] = [
     homework: 'Домашнее задание на тему Директивы',
     note: 'Примечания к уроку по Директивы',
   },
-  {
-    id: 4,
-    date: new Date(2021, 2, 6),
-    theme: 'Жизненный цикл',
-    homework: 'Домашнее задание на тему Жизненный цикл',
-    note: 'Примечания к уроку по Жизненный цикл',
-  },
 ];
 
 export const STUDENT: Student[] = [
   {
-    id: 1,
-    firstName: 'Иван',
-    lastName: 'Иванов',
+    fio: 'Иван Грозный',
+    "grades": [
+      {
+        lessonId: 1,
+        grade: 3,
+      },
+      {
+        lessonId: 2,
+        grade: 5,
+      },
+      {
+        lessonId: 3,
+        grade: 4,
+      },
+    ]
   },
   {
-    id: 2,
-    firstName: 'Георгий',
-    lastName: 'Паравозов',
+    fio: 'Георгий Паравозов',
+    grades: [
+      {
+        lessonId: 1,
+        grade: 4,
+      },
+      {
+        lessonId: 2,
+        grade: 4,
+      },
+      {
+        lessonId: 3,
+        grade: 5,
+      },
+    ]
   },
   {
-    id: 3,
-    firstName: 'Ксения',
-    lastName: 'Павлова',
+    fio: 'Ксения Павлова',
+    grades: [
+      {
+        lessonId: 1,
+        grade: 3,
+      },
+      {
+        lessonId: 2,
+        grade: 6,
+      },
+      {
+        lessonId: 3,
+        grade: 5,
+      },
+    ]
   },
-  {
-    id: 4,
-    firstName: 'Роман',
-    lastName: 'Горбунов',
-  },
-  {
-    id: 5,
-    firstName: 'Андрей',
-    lastName: 'Орлов',
-  },
+ 
 ];
-
-// export const STUDENT_GRADE: StudentGrade[] = [
-//   {
-//     lessonId: 1,
-//     studentId: 1,
-//     grade: 3,
-//   },
-//   {
-//     lessonId: 2,
-//     studentId: 1,
-//     grade: 5,
-//   },
-//   {
-//     lessonId: 3,
-//     studentId: 1,
-//     grade: 4,
-//   },
-//   {
-//     lessonId: 4,
-//     studentId: 1,
-//     grade: 6,
-//   },
-//   {
-//     lessonId: 1,
-//     studentId: 2,
-//     grade: 4,
-//   },
-//   {
-//     lessonId: 2,
-//     studentId: 2,
-//     grade: 4,
-//   },
-//   {
-//     lessonId: 3,
-//     studentId: 2,
-//     grade: 5,
-//   },
-//   {
-//     lessonId: 4,
-//     studentId: 2,
-//     grade: 3,
-//   },
-//   {
-//     lessonId: 1,
-//     studentId: 3,
-//     grade: 3,
-//   },
-//   {
-//     lessonId: 2,
-//     studentId: 3,
-//     grade: 6,
-//   },
-//   {
-//     lessonId: 3,
-//     studentId: 3,
-//     grade: 5,
-//   },
-//   {
-//     lessonId: 4,
-//     studentId: 3,
-//     grade: 3,
-//   },
-//   {
-//     lessonId: 1,
-//     studentId: 4,
-//     grade: 3,
-//   },
-//   {
-//     lessonId: 2,
-//     studentId: 4,
-//     grade: 6,
-//   },
-//   {
-//     lessonId: 3,
-//     studentId: 4,
-//     grade: 5,
-//   },
-//   {
-//     lessonId: 4,
-//     studentId: 4,
-//     grade: 4,
-//   },
-//   {
-//     lessonId: 1,
-//     studentId: 5,
-//     grade: 3,
-//   },
-//   {
-//     lessonId: 2,
-//     studentId: 5,
-//     grade: 3,
-//   },
-//   {
-//     lessonId: 5,
-//     studentId: 5,
-//     grade: 3,
-//   },
-//   {
-//     lessonId: 4,
-//     studentId: 5,
-//     grade: 3,
-//   },
-
-// ];

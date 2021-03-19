@@ -1,0 +1,56 @@
+<hr>
+<div><h1>Баллы студентов</h1></div>
+<form [formGroup]="gradeForm">
+  <table>
+    <tr>
+      <th rowspan="2">ФИО студента</th>
+      <th [attr.colSpan]="lessonIds.controls.length">Баллы</th>
+      <th colspan="2">Cредний балл </th>
+    </tr>
+    <tr>
+      <th *ngFor="let lessonTheme of lessonThemes.controls; let i = index">
+        {{ lessonDates.controls[i].value | date: "dd.MM.yyyy" }} <br>
+        {{ lessonTheme.value }}
+      </th>
+      <th>
+        округление <br> до 2-го разряда
+      </th>
+      <th>
+        округление <br> до целого
+      </th>
+    </tr>
+    <tr *ngFor="let fio of studentsFios.controls; let i = index">
+      <td>
+        {{ fio.value }}
+      </td>
+      <td *ngFor="let grade of grades.controls[i].value.grades; let j = index">
+        <select
+          #changedValue
+          value="{{ grade.grade }}"
+          (change)="changeGrade(i, j, changedValue.value)"
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </td>
+      <td>
+        <span          
+        *ngIf="roundToDecs.controls[i].invalid ||
+        roundToDecs.controls[i].getError('min')"
+class="invalid"
+        >
+          {{ roundToDecs.value[i] | number: "1.1" }}
+        </span>
+        <span *ngIf="!roundToDecs.controls[i].getError('min')">
+          {{ roundToDecs.value[i] | number: "1.1" }}
+        </span>
+      </td>
+      <td>
+        {{ roundToInts.value[i] | number: "1.0" }}
+      </td>
+    </tr>
+  </table>
+</form>
